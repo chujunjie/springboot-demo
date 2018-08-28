@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.OOMTest;
+package com.example.srpingbootjdbc.JVMTest;
 
 import java.util.ArrayList;
 import java.util.List;

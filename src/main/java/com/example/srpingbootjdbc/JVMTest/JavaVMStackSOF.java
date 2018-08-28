@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.OOMTest;
+package com.example.srpingbootjdbc.JVMTest;
 
 /**
  * @Description: 栈溢出  配置参数：-Xss128k
