@@ -7,6 +7,7 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
 
 /**
  * @Description: 定义处理入站事件的方法
@@ -18,7 +19,8 @@ import io.netty.util.CharsetUtil;
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
-     * 信息入站时调用
+     * 信息入站时调用，覆盖channelRead() 方法处理进来的数据用来响应释放资源
+     * 可以使用ReferenceCountUtil.release() 来丢弃收到的信息，write()方法已经包含，可以通过使用 SimpleChannelInboundHandler 简化资源管理问题
      * @param ctx
      * @param msg
      */
@@ -37,7 +39,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)//冲刷所有待审消息到远程节点。关闭通道后，操作完成
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER) //冲刷所有待审消息到远程节点。关闭通道后，操作完成
                 .addListener(ChannelFutureListener.CLOSE);
     }
 

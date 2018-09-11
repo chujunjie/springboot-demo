@@ -21,6 +21,11 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
         ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8)); //当被通知该 channel 是活动的时候就发送信息
     }
 
+    /**
+     * 使用channelRead0会自动管理资源，而无需存储任何信息的引用
+     * @param ctx
+     * @param in
+     */
     @Override
     public void channelRead0(ChannelHandlerContext ctx, ByteBuf in) {
         System.out.println("Client received: " + in.toString(CharsetUtil.UTF_8));    //记录接收到的消息
