@@ -55,6 +55,5 @@ public class RedissonTest {
             e.printStackTrace();
         }
 
-
     }
 }
