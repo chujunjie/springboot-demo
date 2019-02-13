@@ -1,5 +1,6 @@
 package com.example.srpingbootjdbc.springannotation.registercomponent;
 
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -28,5 +29,10 @@ public class BeanConfig {
     @Conditional({LinuxCondition.class})
     public Person person02() {
         return new Person("linus", 50);
+    }
+
+    @Bean
+    public FactoryBean factoryBean() {
+        return new PersonFactoryBean();
     }
 }

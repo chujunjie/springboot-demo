@@ -27,4 +27,24 @@ public class AnnotationTest {
         Map<String, Person> persons = applicationContext.getBeansOfType(Person.class);
         System.out.println(persons);
     }
+
+    @Test
+    public void test02() {
+        printBeans(applicationContext);
+
+        // 工厂获取的bean为调用getObject返回的对象
+        Object bean = applicationContext.getBean("factoryBean");
+        System.out.println("bean的类型：" + bean.getClass());
+
+        // 获取到工厂bean本身
+        Object factoryBean = applicationContext.getBean("&factoryBean");
+        System.out.println("bean的类型：" + factoryBean.getClass());
+    }
+
+    private void printBeans(ApplicationContext applicationContext) {
+        String[] definitionNames = applicationContext.getBeanDefinitionNames();
+        for (String name : definitionNames) {
+            System.out.println(name);
+        }
+    }
 }

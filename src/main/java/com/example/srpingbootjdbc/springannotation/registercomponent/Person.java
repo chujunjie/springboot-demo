@@ -2,6 +2,7 @@ package com.example.srpingbootjdbc.springannotation.registercomponent;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @Description:
@@ -10,6 +11,7 @@ import lombok.Data;
  * @Modified By
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Person {
     private String name;
