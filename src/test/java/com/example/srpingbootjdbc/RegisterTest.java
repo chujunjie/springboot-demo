@@ -14,7 +14,7 @@ import java.util.Map;
  * @Date: Create in 20:32 2019/2/13
  * @Modified By
  */
-public class AnnotationTest {
+public class RegisterTest {
 
     private ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
 
