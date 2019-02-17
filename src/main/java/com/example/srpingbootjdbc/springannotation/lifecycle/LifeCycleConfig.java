@@ -35,4 +35,9 @@ public class LifeCycleConfig {
     public Plane plane() {
         return new Plane();
     }
+
+    @Bean
+    public Animal animal() {
+        return new Animal();
+    }
 }

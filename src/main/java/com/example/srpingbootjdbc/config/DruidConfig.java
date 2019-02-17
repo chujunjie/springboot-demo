@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,8 +27,8 @@ public class DruidConfig {
     //配置druid监控
     //1.配置一个管理后台的servlet
     @Bean
-    public ServletRegistrationBean statViewServlet(){
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+    public ServletRegistrationBean<StatViewServlet> statViewServlet(){
+        ServletRegistrationBean<StatViewServlet> servletRegistrationBean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
 
         Map<String,String> initParams = new HashMap<>();
         initParams.put("loginUsername","admin");
@@ -39,14 +40,14 @@ public class DruidConfig {
 
     //2.配置web监控的filter
     @Bean
-    public FilterRegistrationBean webStatFilter(){
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
+    public FilterRegistrationBean<WebStatFilter> webStatFilter(){
+        FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<>(new WebStatFilter());
 
         Map<String,String> initParams = new HashMap<>();
         initParams.put("exclusions","*.js,*.css,/druid/*");
 
         filterRegistrationBean.setInitParameters(initParams);
-        filterRegistrationBean.setUrlPatterns(Arrays.asList("/*"));
+        filterRegistrationBean.setUrlPatterns(Collections.singletonList("/*"));
         return filterRegistrationBean;
     }
 

@@ -18,8 +18,9 @@ public class LifeCycleTest {
     public void test01() {
 
         // @Scope 多实例bean在获取bean时才创建，并执行初始化方法
-        applicationContext.getBean("car");
+//        applicationContext.getBean("car");
 
+        applicationContext.getBean("animal");
         // 多实例bean在容器关闭时不销毁
         applicationContext.close();
     }
