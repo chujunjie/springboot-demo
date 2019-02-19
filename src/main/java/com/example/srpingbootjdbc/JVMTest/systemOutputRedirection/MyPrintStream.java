@@ -12,7 +12,7 @@ import java.io.PrintStream;
  */
 public class MyPrintStream extends PrintStream {
 
-    int i = 0;
+    private int i = 0;
 
     public MyPrintStream(File file) throws FileNotFoundException {
         super(file);

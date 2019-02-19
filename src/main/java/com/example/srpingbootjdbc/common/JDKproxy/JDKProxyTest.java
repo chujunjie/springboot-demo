@@ -10,8 +10,7 @@ import java.lang.reflect.Proxy;
  * @Modified By
  */
 public class JDKProxyTest {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         //    我们要代理的真实对象
         Subject realSubject = new RealSubject();
 

@@ -16,15 +16,12 @@ public class DynamicProxy implements InvocationHandler {
     private Object subject;
 
     //    构造方法，给我们要代理的真实对象赋初值
-    public DynamicProxy(Object subject)
-    {
+    public DynamicProxy(Object subject) {
         this.subject = subject;
     }
 
     @Override
-    public Object invoke(Object object, Method method, Object[] args)
-            throws Throwable
-    {
+    public Object invoke(Object object, Method method, Object[] args) throws Throwable {
         //　　在代理真实对象前我们可以添加一些自己的操作
         System.out.println("before rent house");
 

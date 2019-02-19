@@ -8,20 +8,13 @@ package com.example.srpingbootjdbc.common.JDKproxy;
  */
 public class RealSubject implements Subject{
     @Override
-    public void rent()
-    {
+    public void rent() {
         System.out.println("I want to rent my house");
     }
 
     @Override
-    public void hello(String str)
-    {
+    public void hello(String str) {
         System.out.println("hello: " + str);
     }
 }
 
-interface Subject{
-    void rent();
-
-    void hello(String str);
-}

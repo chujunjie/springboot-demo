@@ -22,7 +22,8 @@ public class Main {
         }
     }
 
-    public static void exec() throws IOException, InvocationTargetException {
+    @SuppressWarnings("unchecked")
+    public static void exec() throws IOException {
         InputStream inputStream = new FileInputStream("C:/Users/lenovo/Main.class");
         byte[] classBytes = new byte[inputStream.available()];
         inputStream.read(classBytes);
@@ -39,8 +40,8 @@ public class Main {
         HotSwapClassLoader loader = new HotSwapClassLoader();
         Class clazz = loader.loadByte(classBytes);
         try {
-            Method method = clazz.getMethod("main", new Class[]{String[].class});
-            method.invoke(null, new String[]{null});
+            Method method = clazz.getMethod("main", String[].class);
+            method.invoke(null, (Object) new String[]{null});
         } catch (NoSuchMethodException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

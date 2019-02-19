@@ -26,6 +26,7 @@ public class BookFacadeCglib implements MethodInterceptor {
         // 创建动态代理类对象并返回
         return enhancer.create();
     }
+
     // 实现回调方法
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         System.out.println("预处理——————");
