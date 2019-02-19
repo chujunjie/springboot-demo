@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.springannotation.registercomponent;
+package com.example.srpingbootjdbc.springIOC.registercomponent;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.annotation.Bean;

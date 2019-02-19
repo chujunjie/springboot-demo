@@ -1,8 +1,7 @@
-package com.example.srpingbootjdbc.springannotation.lifecycle;
+package com.example.srpingbootjdbc.springIOC.lifecycle;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 /**
  * @Description: 自定义bean的生命周期：

@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.springannotation.lifecycle;
+package com.example.srpingbootjdbc.springIOC.lifecycle;
 
 /**
  * @Description:

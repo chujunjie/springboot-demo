@@ -1,7 +1,7 @@
 package com.example.srpingbootjdbc;
 
-import com.example.srpingbootjdbc.springannotation.registercomponent.BeanConfig;
-import com.example.srpingbootjdbc.springannotation.registercomponent.Person;
+import com.example.srpingbootjdbc.springIOC.registercomponent.BeanConfig;
+import com.example.srpingbootjdbc.springIOC.registercomponent.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

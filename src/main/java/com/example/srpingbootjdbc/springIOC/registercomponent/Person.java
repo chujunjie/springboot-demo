@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.springannotation.registercomponent;
+package com.example.srpingbootjdbc.springIOC.registercomponent;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

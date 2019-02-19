@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.springannotation.registercomponent;
+package com.example.srpingbootjdbc.springIOC.registercomponent;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
@@ -11,15 +11,16 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  * @Date: Create in 20:23 2019/2/13
  * @Modified By
  */
-public class LinuxCondition implements Condition {
+public class WindowsCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        // 获取当前的运行环境
         Environment environment = context.getEnvironment();
         String property = environment.getProperty("os.name");
         if (null == property)
             return false;
-        return property.contains("linux");
+        return property.contains("Windows");
     }
 
 }

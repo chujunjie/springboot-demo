@@ -1,6 +1,6 @@
 package com.example.srpingbootjdbc;
 
-import com.example.srpingbootjdbc.springannotation.lifecycle.LifeCycleConfig;
+import com.example.srpingbootjdbc.springIOC.lifecycle.LifeCycleConfig;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
