@@ -1,6 +1,8 @@
 package com.example.srpingbootjdbc.utils;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * @Description:
@@ -73,7 +75,7 @@ public class MyLinkedList<E> implements Iterable {
      * @param node
      * @return
      */
-    private E remove(Node<E> node) {
+    private <E> E remove(Node<E> node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
         this.size--;
@@ -153,21 +155,47 @@ public class MyLinkedList<E> implements Iterable {
 
     private class LinkedListIterator<E> implements Iterator<E> {
 
-        private int current;
+        private Node<E> current;
+        private int exceptedModCount;
+        private boolean validRemove = false;
+
+        public LinkedListIterator() {
+            this.current = (Node<E>) beginMarker.next;
+            this.exceptedModCount = modCount;
+        }
 
         @Override
         public boolean hasNext() {
-            return current < size();
+            return current != endMarker;
         }
 
         @Override
         public E next() {
-            return (E) getNode(current++).data;
+            checkForModification();
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            E data = current.data;
+            current = current.next;
+            validRemove = true;
+            return data;
         }
 
         @Override
         public void remove() {
-            MyLinkedList.this.remove(current);
+            checkForModification();
+            if (!validRemove) {
+                throw new IllegalStateException();
+            }
+            MyLinkedList.this.remove(current.prev);
+            exceptedModCount++;
+            validRemove = false;
+        }
+
+        private void checkForModification() {
+            if (exceptedModCount != modCount) {
+                throw new ConcurrentModificationException();
+            }
         }
     }
 }
