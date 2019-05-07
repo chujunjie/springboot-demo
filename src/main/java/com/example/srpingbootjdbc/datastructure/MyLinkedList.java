@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.utils;
+package com.example.srpingbootjdbc.datastructure;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package com.example.srpingbootjdbc.utils;
+package com.example.srpingbootjdbc.datastructure;
 
 /**
  * @Description:
