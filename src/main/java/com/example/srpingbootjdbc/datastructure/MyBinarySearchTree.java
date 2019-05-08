@@ -139,7 +139,8 @@ public class MyBinarySearchTree<T extends Comparable<? super T>> {
         } else if (result > 0) {
             node.right = remove(data, node.right);
         } else {
-            // 两个子节点，从右子节点中选出最小值
+            // 两个子节点，从右子节点中选出最小值替代删除的节点
+            // 这种算法使得左子树比右子树深度深，造成期望深度大于O(logN)
             if (null != node.left && null != node.right) {
                 node.data = findMin(node.right).data;
                 node.right = remove(node.data, node.right);
