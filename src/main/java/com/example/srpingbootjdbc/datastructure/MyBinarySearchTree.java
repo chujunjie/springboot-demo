@@ -79,6 +79,17 @@ public class MyBinarySearchTree<T extends Comparable<? super T>> {
         root = remove(data, root);
     }
 
+    /**
+     * 打印
+     */
+    public void printTree() {
+        if (isEmpty()) {
+            System.out.println("Empty Tree");
+        } else {
+            printTree(root);
+        }
+    }
+
     private boolean contains(T data, BinaryNode<T> node) {
         if (null == data) {
             return false;
@@ -149,6 +160,14 @@ public class MyBinarySearchTree<T extends Comparable<? super T>> {
             }
         }
         return node;
+    }
+
+    private void printTree(BinaryNode<T> node) {
+        if (null != node) {
+            printTree(node.left);
+            System.out.println(node.data);
+            printTree(node.right);
+        }
     }
 
     /**
