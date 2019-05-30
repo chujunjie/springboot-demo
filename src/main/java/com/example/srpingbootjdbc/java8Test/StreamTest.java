@@ -19,6 +19,9 @@ public class StreamTest {
                 .limit(3)
                 .collect(toList());
         threeHighCaloricDishNames.forEach(System.out::println);
+
+        SpellChecker checker = new SpellChecker(Dictionary::new);
+        checker.isValid("hello world");
     }
 }
 
