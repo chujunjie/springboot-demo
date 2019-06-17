@@ -2,8 +2,11 @@ package com.example.srpingbootjdbc.java8Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static com.example.srpingbootjdbc.java8Test.Dish.menu;
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -15,12 +18,12 @@ import static java.util.stream.Collectors.toList;
 public class StreamTest {
     public static void main(String[] args) {
         // 1.获取前三个卡路里大于300的食物
-        List<String> threeHighCaloricDishNames = menu.stream() // parallelStream() 并行化处理
+        String threeHighCaloricDishNames = menu.stream() // parallelStream() 并行化处理
                 .filter(d -> d.getCalories() > 300)
                 .map(Dish::getName) // 映射，生成新的元素
                 .limit(3)
-                .collect(toList());
-        threeHighCaloricDishNames.forEach(System.out::println);
+                .collect(joining(", "));
+        System.out.println(threeHighCaloricDishNames);
 
         // 2.工厂获取字典，并注入到拼写检查器
         SpellChecker checker = new SpellChecker(Dictionary::new);
@@ -61,7 +64,30 @@ public class StreamTest {
         Integer reduce = menu.stream()
                 .map(Dish::getCalories)
                 .reduce(0, Integer::sum); // reduce(Integer::max) 最大值
+        int sum = menu.stream()
+                .mapToInt(Dish::getCalories) // 数值流，避免暗含的装箱成本，使用boxed()转换回对象流
+                .sum();
         System.out.println(reduce);
+
+        // 7.数值流，勾股数
+        IntStream.rangeClosed(1, 100).boxed()
+                .flatMap(a ->
+                        IntStream.rangeClosed(a, 100)
+                                .mapToObj(b -> new double[]{a, b, Math.sqrt(a * a + b * b)})
+                                .filter(t -> t[2] % 1 == 0))
+                .limit(5)
+                .forEach(t -> System.out.println((int) t[0] + ", " + (int) t[1] + ", " + (int) t[2]));
+
+        // 8.无限流
+        List<Integer> fibonacci = Stream.iterate(new int[]{0, 1},
+                t -> new int[]{t[1], t[0] + t[1]}) // 迭代生成斐波那契数列
+                .limit(10)
+                .map(t -> t[0])
+                .collect(toList());
+        System.out.println(fibonacci.toString());
+        Stream.generate(Math::random) // 生成产生随机双精度数
+                .limit(5)
+                .forEach(System.out::println);
     }
 }
 
