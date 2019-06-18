@@ -1,13 +1,12 @@
 package com.example.srpingbootjdbc.java8Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static com.example.srpingbootjdbc.java8Test.Dish.CaloricLevel.*;
 import static com.example.srpingbootjdbc.java8Test.Dish.menu;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 /**
  * @Description:
@@ -84,10 +83,32 @@ public class StreamTest {
                 .limit(10)
                 .map(t -> t[0])
                 .collect(toList());
-        System.out.println(fibonacci.toString());
+        System.out.println(fibonacci);
         Stream.generate(Math::random) // 生成产生随机双精度数
                 .limit(5)
                 .forEach(System.out::println);
+
+        // 9.分组
+        Map<Dish.Type, Map<Dish.CaloricLevel, List<Dish>>> groupingBy = menu.stream()
+                .collect(groupingBy(Dish::getType,
+                        groupingBy(dish -> { // 二级分组
+                            if (dish.getCalories() <= 400)
+                                return LOW;
+                            else if (dish.getCalories() <= 700)
+                                return NORMAL;
+                            else return HIGH;
+                        })));
+        System.out.println(groupingBy);
+        Map<Dish.Type, Set<Dish.CaloricLevel>> groupingBy2 = menu.stream()
+                .collect(groupingBy(Dish::getType,
+                        mapping(dish -> {
+                            if (dish.getCalories() <= 400)
+                                return LOW;
+                            else if (dish.getCalories() <= 700)
+                                return NORMAL;
+                            else return HIGH;
+                        }, toCollection(HashSet::new)))); // 控制收集的集合类型
+        System.out.println(groupingBy2);
     }
 }
 
