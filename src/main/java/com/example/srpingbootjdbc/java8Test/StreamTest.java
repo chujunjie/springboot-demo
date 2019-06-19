@@ -88,7 +88,7 @@ public class StreamTest {
                 .limit(5)
                 .forEach(System.out::println);
 
-        // 9.分组
+        // 9.分组和分区
         Map<Dish.Type, Map<Dish.CaloricLevel, List<Dish>>> groupingBy = menu.stream()
                 .collect(groupingBy(Dish::getType,
                         groupingBy(dish -> { // 二级分组
@@ -109,6 +109,11 @@ public class StreamTest {
                             else return HIGH;
                         }, toCollection(HashSet::new)))); // 控制收集的集合类型
         System.out.println(groupingBy2);
+        Map<Boolean, Dish> partitioningBy = menu.stream() // 选出热量最高的晕菜和素菜
+                .collect(partitioningBy(Dish::isVegetarian,
+                        collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)),
+                                Optional::get)));
+        System.out.println(partitioningBy);
     }
 }
 
