@@ -114,6 +114,11 @@ public class StreamTest {
                         collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)),
                                 Optional::get)));
         System.out.println(partitioningBy);
+
+        // 10.自定义收集器，区分整数流中的质数与非质数
+        Map<Boolean, List<Integer>> judgePrimeMap = IntStream.rangeClosed(2, 20).boxed()
+                .collect(new PrimeNumbersCollector());
+        System.out.println(judgePrimeMap);
     }
 }
 
