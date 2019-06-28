@@ -76,7 +76,6 @@ public class AsyncTest {
      * @return
      */
     private static List<String> findPricesWithCompletableFuture(String product) {
-
         List<CompletableFuture<String>> futures = shops.stream()
                 .map(shop -> CompletableFuture.supplyAsync(
                         () -> String.format("%s price is %.2f",
@@ -95,7 +94,6 @@ public class AsyncTest {
      * @return
      */
     private static List<String> findPricesWithExecutor(String product) {
-
         List<CompletableFuture<String>> futures = shops.stream()
                 .map(shop -> CompletableFuture.supplyAsync(
                         () -> String.format("%s price is %.2f",
