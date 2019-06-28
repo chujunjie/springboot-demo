@@ -27,8 +27,26 @@ public class Shop {
         return calculatePrice(product);
     }
 
+    /**
+     * 异步获取价格
+     *
+     * @param product
+     * @return
+     */
     public Future<Double> getPriceAsync(String product) {
         return CompletableFuture.supplyAsync(() -> calculatePrice(product));
+    }
+
+    /**
+     * 获取价格和折扣
+     *
+     * @param product
+     * @return
+     */
+    public String getPriceAndDiscount(String product) {
+        double price = calculatePrice(product);
+        Discount.Code code = Discount.Code.values()[random.nextInt(Discount.Code.values().length)];
+        return String.format("%s:%.2f:%s", name, price, code);
     }
 
     /**
@@ -47,7 +65,7 @@ public class Shop {
     /**
      * 模拟网络延时
      */
-    private static void delay() {
+    public static void delay() {
         try {
             Thread.sleep(1000L);
         } catch (InterruptedException e) {
