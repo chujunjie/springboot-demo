@@ -10,13 +10,8 @@ public class MyBatisConfig {
     //mybatis配置定制器
     @Bean
     public ConfigurationCustomizer configurationCustomizer(){
-        return new ConfigurationCustomizer(){
-
-            @Override
-            public void customize(org.apache.ibatis.session.Configuration configuration) {
-                //开启驼峰命名
-                configuration.setMapUnderscoreToCamelCase(true);
-            }
+        return configuration -> {
+            configuration.setMapUnderscoreToCamelCase(true); // 开启驼峰命名
         };
     }
 }

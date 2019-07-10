@@ -18,6 +18,7 @@ public class MyArrayList<E> {
 
     public E[] arr;
 
+    @SuppressWarnings("unchecked")
     public MyArrayList() {
         arr = (E[]) new Object[DEFAULT_CAPACITY];
         size = 0;

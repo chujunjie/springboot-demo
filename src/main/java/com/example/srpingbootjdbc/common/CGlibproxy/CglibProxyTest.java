@@ -8,10 +8,9 @@ package com.example.srpingbootjdbc.common.CGlibproxy;
  */
 public class CglibProxyTest {
     public static void main(String[] args) {
-
-        BookFacadeImpl bookFacade=new BookFacadeImpl();
-        BookFacadeCglib  cglib=new BookFacadeCglib();
-        BookFacadeImpl bookCglib=(BookFacadeImpl)cglib.getInstance(bookFacade);
+        BookFacade bookFacade = new BookFacade();
+        BookFacadeCglib cglib = new BookFacadeCglib();
+        BookFacade bookCglib = (BookFacade) cglib.getInstance(bookFacade);
         bookCglib.addBook();
     }
 

@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 /**
  * @Description: Cglib动态代理
- *               通过继承业务实现类，重写业务方法进行代理
+ * 通过继承业务实现类，重写业务方法进行代理
  * @Author: chujunjie
  * @Date: Create in 15:08 2018/7/27
  * @Modified By

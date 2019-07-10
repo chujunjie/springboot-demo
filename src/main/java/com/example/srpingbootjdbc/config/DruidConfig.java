@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,31 +19,32 @@ public class DruidConfig {
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource druid(){
+    public DataSource druid() {
         return new DruidDataSource();
     }
 
     //配置druid监控
     //1.配置一个管理后台的servlet
     @Bean
-    public ServletRegistrationBean<StatViewServlet> statViewServlet(){
-        ServletRegistrationBean<StatViewServlet> servletRegistrationBean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
+    public ServletRegistrationBean<StatViewServlet> statViewServlet() {
+        ServletRegistrationBean<StatViewServlet> servletRegistrationBean =
+                new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
 
-        Map<String,String> initParams = new HashMap<>();
-        initParams.put("loginUsername","admin");
-        initParams.put("loginPassword","123456");
-        initParams.put("allow","");
+        Map<String, String> initParams = new HashMap<>();
+        initParams.put("loginUsername", "admin");
+        initParams.put("loginPassword", "123456");
+        initParams.put("allow", "");
         servletRegistrationBean.setInitParameters(initParams);
         return servletRegistrationBean;
     }
 
     //2.配置web监控的filter
     @Bean
-    public FilterRegistrationBean<WebStatFilter> webStatFilter(){
+    public FilterRegistrationBean<WebStatFilter> webStatFilter() {
         FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<>(new WebStatFilter());
 
-        Map<String,String> initParams = new HashMap<>();
-        initParams.put("exclusions","*.js,*.css,/druid/*");
+        Map<String, String> initParams = new HashMap<>();
+        initParams.put("exclusions", "*.js,*.css,/druid/*");
 
         filterRegistrationBean.setInitParameters(initParams);
         filterRegistrationBean.setUrlPatterns(Collections.singletonList("/*"));

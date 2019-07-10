@@ -15,14 +15,14 @@ public class EmpController {
     private EmpService empService;
 
     @GetMapping("/emp/{id}")
-    @Cacheable(cacheNames = "emp",key = "'emp_'+#id")
-    public Employee getEmployee(@PathVariable Integer id){
+    @Cacheable(cacheNames = "emp", key = "'emp_'+#id")
+    public Employee getEmployee(@PathVariable Integer id) {
         System.out.println(id);
         return empService.getEmpById(id);
     }
 
     @GetMapping("/emp")
-    public Employee insertEmployee(Employee employee){
+    public Employee insertEmployee(Employee employee) {
         empService.insertEmp(employee);
         return employee;
     }
