@@ -1,11 +1,10 @@
-package com.example.springbootdemo.redisson;
+package com.example.springbootdemo.redis.redisson;
 
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
-
 
 import java.util.concurrent.TimeUnit;
 

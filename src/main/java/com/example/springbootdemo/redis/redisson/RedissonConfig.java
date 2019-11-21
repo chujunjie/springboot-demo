@@ -1,4 +1,4 @@
-package com.example.springbootdemo.redisson;
+package com.example.springbootdemo.redis.redisson;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
