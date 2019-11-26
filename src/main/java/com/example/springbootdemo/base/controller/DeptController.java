@@ -1,7 +1,7 @@
-package com.example.springbootdemo.controller;
+package com.example.springbootdemo.base.controller;
 
-import com.example.springbootdemo.bean.Department;
-import com.example.springbootdemo.mapper.DepartmentMapper;
+import com.example.springbootdemo.base.bean.Department;
+import com.example.springbootdemo.base.mapper.DepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

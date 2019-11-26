@@ -1,6 +1,6 @@
-package com.example.springbootdemo.service;
+package com.example.springbootdemo.base.service;
 
-import com.example.springbootdemo.bean.Employee;
+import com.example.springbootdemo.base.bean.Employee;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.example.springbootdemo.controller;
+package com.example.springbootdemo.base.controller;
 
-import com.example.springbootdemo.service.AsyncService;
+import com.example.springbootdemo.base.service.AsyncService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

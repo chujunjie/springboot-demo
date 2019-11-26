@@ -1,8 +1,8 @@
 package com.example.springbootdemo;
 
-import com.example.springbootdemo.bean.Article;
-import com.example.springbootdemo.bean.Employee;
-import com.example.springbootdemo.mapper.EmployeeMapper;
+import com.example.springbootdemo.base.bean.Article;
+import com.example.springbootdemo.base.bean.Employee;
+import com.example.springbootdemo.base.mapper.EmployeeMapper;
 import io.searchbox.client.JestClient;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;

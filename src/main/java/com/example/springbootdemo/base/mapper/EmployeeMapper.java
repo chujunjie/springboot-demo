@@ -1,6 +1,6 @@
-package com.example.springbootdemo.mapper;
+package com.example.springbootdemo.base.mapper;
 
-import com.example.springbootdemo.bean.Employee;
+import com.example.springbootdemo.base.bean.Employee;
 
 public interface EmployeeMapper {
 

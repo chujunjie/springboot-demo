@@ -1,4 +1,4 @@
-package com.example.springbootdemo.bean;
+package com.example.springbootdemo.base.bean;
 
 import java.io.Serializable;
 

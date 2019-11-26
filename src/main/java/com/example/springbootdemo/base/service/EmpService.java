@@ -1,7 +1,7 @@
-package com.example.springbootdemo.service;
+package com.example.springbootdemo.base.service;
 
-import com.example.springbootdemo.bean.Employee;
-import com.example.springbootdemo.mapper.EmployeeMapper;
+import com.example.springbootdemo.base.bean.Employee;
+import com.example.springbootdemo.base.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

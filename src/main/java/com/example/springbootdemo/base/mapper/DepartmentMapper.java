@@ -1,6 +1,6 @@
-package com.example.springbootdemo.mapper;
+package com.example.springbootdemo.base.mapper;
 
-import com.example.springbootdemo.bean.Department;
+import com.example.springbootdemo.base.bean.Department;
 import org.apache.ibatis.annotations.*;
 
 

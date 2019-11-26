@@ -1,7 +1,7 @@
-package com.example.springbootdemo.controller;
+package com.example.springbootdemo.base.controller;
 
-import com.example.springbootdemo.bean.Employee;
-import com.example.springbootdemo.service.EmpService;
+import com.example.springbootdemo.base.bean.Employee;
+import com.example.springbootdemo.base.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
