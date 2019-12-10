@@ -1,7 +1,7 @@
 package com.example.springbootdemo.aop;
 
-import com.example.springbootdemo.springAOP.aspect.AspectConfig;
-import com.example.springbootdemo.springAOP.aspect.Goods;
+import com.example.springbootdemo.spring.aop.AspectConfig;
+import com.example.springbootdemo.spring.aop.Goods;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

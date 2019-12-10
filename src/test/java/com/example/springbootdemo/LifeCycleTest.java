@@ -1,6 +1,6 @@
 package com.example.springbootdemo;
 
-import com.example.springbootdemo.springIOC.lifecycle.LifeCycleConfig;
+import com.example.springbootdemo.spring.ioc.lifecycle.LifeCycleConfig;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

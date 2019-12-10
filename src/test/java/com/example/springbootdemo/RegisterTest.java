@@ -1,7 +1,7 @@
 package com.example.springbootdemo;
 
-import com.example.springbootdemo.springIOC.registercomponent.BeanConfig;
-import com.example.springbootdemo.springIOC.registercomponent.Person;
+import com.example.springbootdemo.spring.ioc.registercomponent.BeanConfig;
+import com.example.springbootdemo.spring.ioc.registercomponent.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
