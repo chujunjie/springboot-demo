@@ -1,4 +1,4 @@
-package com.example.springbootdemo.common.JDKproxy;
+package com.example.springbootdemo.spring.proxy.JDKproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

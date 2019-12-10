@@ -16,5 +16,4 @@ public class AsyncController {
         asyncService.hello();
         return "success";
     }
-
 }

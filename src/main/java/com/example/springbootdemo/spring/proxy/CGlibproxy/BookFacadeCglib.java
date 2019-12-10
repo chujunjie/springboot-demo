@@ -1,4 +1,4 @@
-package com.example.springbootdemo.common.CGlibproxy;
+package com.example.springbootdemo.spring.proxy.CGlibproxy;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;

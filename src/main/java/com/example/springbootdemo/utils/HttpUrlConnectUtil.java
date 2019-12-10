@@ -1,7 +1,7 @@
 package com.example.springbootdemo.utils;
 
 
-import com.example.springbootdemo.common.Const;
+import com.example.springbootdemo.common.Constant;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 
@@ -37,21 +37,21 @@ public class HttpUrlConnectUtil {
         try {
             Response response = call.execute();
             int statusCode = response.code();
-            if (statusCode == Const.STATUS_NORMAL) {
+            if (statusCode == Constant.STATUS_NORMAL) {
                 response.close();
-                return Const.RESULT_OK;
+                return Constant.RESULT_OK;
             }
             response.close();
-            return Const.RESULT_FAILURE;
+            return Constant.RESULT_FAILURE;
 
         } catch (ProtocolException e) {
 
-            return Const.RESULT_FAILURE;
+            return Constant.RESULT_FAILURE;
 
         } catch (Exception e) {
 
             log.error(e.getLocalizedMessage(), e);
-            return Const.RESULT_FAILURE;
+            return Constant.RESULT_FAILURE;
         }
     }
 

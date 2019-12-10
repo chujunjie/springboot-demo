@@ -28,7 +28,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  *     2) ElasticSearchTemplate操作ES
  *     3) 编写一个ElasticSearchRepository的子接口操作ES
  */
-@MapperScan(value = "com.example.springbootdemo.mapper")
+@MapperScan(value = "com.example.springbootdemo.base.mapper")
 @SpringBootApplication
 @EnableCaching
 @EnableRabbit //开启基于注解的RabbitMQ

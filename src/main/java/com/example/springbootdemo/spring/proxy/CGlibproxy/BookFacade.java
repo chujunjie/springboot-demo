@@ -1,4 +1,4 @@
-package com.example.springbootdemo.common.CGlibproxy;
+package com.example.springbootdemo.spring.proxy.CGlibproxy;
 
 /**
  * @Description:
