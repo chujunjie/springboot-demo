@@ -197,7 +197,7 @@ public class CustomThreadPool {
      */
     private Runnable getTask() {
         // 关闭标志位和任务数判断
-        if (isShutDown || totalTask.get() == 0)
+        if (isShutDown && totalTask.get() == 0)
             return null;
 
         lock.lock();
