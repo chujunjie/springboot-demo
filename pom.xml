@@ -155,6 +155,12 @@
             <version>3.9</version>
         </dependency>
 
+        <!--客户端-->
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.11</version>
+        </dependency>
     </dependencies>
 
     <build>
